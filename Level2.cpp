@@ -4,6 +4,7 @@
 #define LEVEL2_HEIGHT 8
 
 #define LEVEL2_ENEMY_COUNT 1
+Mix_Chunk* bounce2;
 
 unsigned int level2_data[] = 
 {
@@ -27,6 +28,8 @@ void Level2::Initialize() {
 
     GLuint mapTextureID = Util::LoadTexture("platformPack_tilesheet@2.png");
     state.map = new Map(LEVEL2_WIDTH, LEVEL2_HEIGHT, level2_data, mapTextureID, 1.0f, 14, 7);
+
+    bounce2 = Mix_LoadWAV("bounce.wav");
 
     // Move over all of the player and enemy code from initialization.
 
@@ -80,7 +83,9 @@ void Level2::Update(float deltaTime) {
         state.nextScene = 2;
     }
     if (state.player->killedEnemy) { //player beat enemy
+        Mix_PlayChannel(-1, bounce2, 0);
         state.enemies->isActive = false;
+        state.player->killedEnemy = false;
     }
     
     else if (state.player->lastCollision == state.enemies) { //lose a life

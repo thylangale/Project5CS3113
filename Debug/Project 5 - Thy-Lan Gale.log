@@ -1,8 +1,4 @@
-﻿  main.cpp
-  Map.cpp
-C:\NYU\Spring 2021\Game Programming\Project 5 - Thy-Lan Gale\Project 5 - Thy-Lan Gale\Map.cpp(89,13): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
-C:\NYU\Spring 2021\Game Programming\Project 5 - Thy-Lan Gale\Project 5 - Thy-Lan Gale\Map.cpp(90,13): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
-  Util.cpp
-C:\NYU\Spring 2021\Game Programming\Project 5 - Thy-Lan Gale\Project 5 - Thy-Lan Gale\Util.cpp(36,20): warning C4018: '<': signed/unsigned mismatch
+﻿  Level2.cpp
+  Level3.cpp
   Generating Code...
   Project 5 - Thy-Lan Gale.vcxproj -> C:\NYU\Spring 2021\Game Programming\Project 5 - Thy-Lan Gale\Debug\Project 5 - Thy-Lan Gale.exe

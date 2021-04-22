@@ -4,6 +4,7 @@
 #define LEVEL3_HEIGHT 8
 
 #define LEVEL3_ENEMY_COUNT 1
+Mix_Chunk* bounce3;
 
 unsigned int level3_data[] =
 {
@@ -26,6 +27,9 @@ void Level3::Initialize() {
 
     GLuint mapTextureID = Util::LoadTexture("platformPack_tilesheet@2.png");
     state.map = new Map(LEVEL3_WIDTH, LEVEL3_HEIGHT, level3_data, mapTextureID, 1.0f, 14, 7);
+
+    bounce3 = Mix_LoadWAV("bounce.wav");
+
     // Move over all of the player and enemy code from initialization.
     // Initialize player
     state.player = new Entity();
@@ -78,7 +82,9 @@ void Level3::Update(float deltaTime) {
         state.nextScene = 4;
     }
     if (state.player->killedEnemy) { //player beat enemy
+        Mix_PlayChannel(-1, bounce3, 0);
         state.enemies->isActive = false;
+        state.player->killedEnemy = false;
     }
 
     else if (state.enemies->lastCollision == state.player || state.player->position.y < -6.5) { //lose a life
